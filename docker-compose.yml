@@ -1,0 +1,34 @@
+services:
+  db-spring-data:
+    image: postgres:15.9
+    container_name: db-spring
+    environment:
+      POSTGRES_USER: spring-data
+      POSTGRES_PASSWORD: spring-data
+      POSTGRES_DB: spring-data
+    ports:
+        - "5432:5432"
+    volumes:
+        - db-spring-data:/var/lib/postgresql/data
+    networks:
+      db:
+  db-spring-MySQL:
+    image: mysql:8.0
+    container_name: db-spring-mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: spring-data
+        MYSQL_DATABASE: spring-data
+        MYSQL_USER: spring-data
+        MYSQL_PASSWORD: spring-data
+    ports:
+        - "3306:3306"
+    volumes:
+        - db-spring-data:/var/lib/mysql/data
+    networks:
+      db:
+networks:
+  db:
+    driver: bridge
+volumes:
+  db-spring-data:
+    driver: local
