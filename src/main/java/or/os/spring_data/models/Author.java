@@ -2,11 +2,15 @@ package or.os.spring_data.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.UUID;
 
+import java.time.LocalDate;
+import java.util.UUID;
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
+@Builder
 @Entity
+@Table(name = "AUTHOR_TBL")
 public class Author {
     @Id
 //    @GeneratedValue
@@ -28,11 +32,18 @@ public class Author {
 //            sequenceName = "author_sequence",
 //            allocationSize = 1
 //    )
-
     private Integer id;
+
+    @Column
     private String firstName;
     private String lastName;
+    @Column(unique = true, nullable = false)
     private String email;
     private int age;
+    @Column(updatable = false)
+    private LocalDate createdAt;
+    @Column(insertable = false)
+    private LocalDate updatedAt;
+
 }
 
