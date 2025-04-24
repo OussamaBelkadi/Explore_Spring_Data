@@ -12,14 +12,24 @@ public class Author {
 //    @GeneratedValue
 //    private UUID id;
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "author_sequence"
+            strategy = GenerationType.TABLE,
+            generator = "author_tab"
     )
-    @SequenceGenerator(
-            name = "author_sequence",
-            sequenceName = "author_sequence",
+    @TableGenerator(
+            name = "author_tab",
+            table = "author_tab",
+            pkColumnName = "seq_name",
+            valueColumnName = "seq_count",
+            pkColumnValue = "author_seq",
             allocationSize = 1
     )
+//    @SequenceGenerator(
+//            name = "author_sequence",
+//            sequenceName = "author_sequence",
+//            allocationSize = 1
+//    )
+
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
