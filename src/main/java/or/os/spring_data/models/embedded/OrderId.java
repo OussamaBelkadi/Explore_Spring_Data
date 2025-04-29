@@ -1,4 +1,4 @@
-package or.os.spring_data.embedded;
+package or.os.spring_data.models.embedded;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
