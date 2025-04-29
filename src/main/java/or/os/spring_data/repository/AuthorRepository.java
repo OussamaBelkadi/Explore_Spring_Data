@@ -17,7 +17,11 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
     @Query("update Author a set a.age = :age")
     void updateAllAuthorsAge(int age);
 
+    @Transactional
     List<Author> findAllByNamedQueries(@Param("age") int age);
+    @Transactional
+    @Modifying /// is related to the update query
+    List<Author> updateAllByNamedQueries(@Param("name") int age);
     List<Author> findAllByFirstName(String firstName);
     List<Author> findAllByFirstNameIgnoreCase(String str);
     List<Author> findAllByFirstNameContainingIgnoreCase(String str);
