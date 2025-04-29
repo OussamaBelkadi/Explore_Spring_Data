@@ -12,6 +12,10 @@ import java.util.Set;
 @SuperBuilder
 @Entity
 @EqualsAndHashCode(callSuper = true)
+@NamedQuery(
+        name = "Author.findAllByNamedQueries",
+        query = "select a from Author a where a.age = :age"
+)
 public class Author extends BaseEntity{
 //    @Id
 //    @GeneratedValue

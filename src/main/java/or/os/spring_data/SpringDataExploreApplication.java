@@ -33,6 +33,7 @@ public class SpringDataExploreApplication {
             }
             repository.updateAllAuthorsAge(26);
             System.out.println("Spring Data JPA Application");
+            repository.findAllByNamedQueries(26).forEach(System.out::println);
             // You can add your logic here to test the application
         };
     }
